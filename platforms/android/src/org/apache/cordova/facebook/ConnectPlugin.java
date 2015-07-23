@@ -632,7 +632,7 @@ public class ConnectPlugin extends CordovaPlugin {
             showDialogContext.success(response);
         } else {
             Log.e(TAG, "User cancelled dialog");
-            showDialogContext.error("User cancelled dialog");
+            showDialogContext.error(getErrorResponse(null, "User cancelled dialog", 4201));
         }
     }
 

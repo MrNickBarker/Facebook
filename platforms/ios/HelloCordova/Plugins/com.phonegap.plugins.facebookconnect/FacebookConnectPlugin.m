@@ -440,8 +440,8 @@
                                                   CDVPluginResult *pluginResult = nil;
                                                   if ([[results objectForKey:@"completionGesture"] isEqualToString:@"cancel"]) {
                                                       // User cancelled
-                                                      pluginResult = [CDVPluginResult resultWithStatus:
-                                                                      CDVCommandStatus_ERROR messageAsString:@"User cancelled."];
+                                                      pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                                                                   messageAsDictionary:@{@"errorMessage":@"User cancelled.",@"errorCode":@"4201"}];
                                                   } else {
                                                       if (error) {
                                                           // An error occurred, we need to handle the error
@@ -472,7 +472,7 @@
                  if (result == FBWebDialogResultDialogNotCompleted) {
                      // User clicked the "x" icon to Cancel
                      pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
-                                                      messageAsString:@"User cancelled."];
+                                                  messageAsDictionary:@{@"errorMessage":@"User cancelled.",@"errorCode":@"4201"}];
                  } else {
                      // Send the URL parameters back, for a requests dialog, the "request" parameter
                      // will include the resluting request id. For a feed dialog, the "post_id"

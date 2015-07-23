@@ -61,9 +61,9 @@ if (cordova.platformId == "browser") {
                 });
             } catch (error) {
                 if (!f) {
-                    console.error(error.message);
+                    console.error(error);
                 } else {
-                    f(error.message);
+                    f(error);
                 }
             }
         },
